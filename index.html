@@ -228,6 +228,20 @@ button:not(:disabled):hover{filter:brightness(1.12)}
  .fi small{grid-area:sm}
 }
 @media(min-width:1000px){.idle .tb{align-self:end;line-height:1}.idle .rt{align-self:start}.idle .wr,.idle .ex{align-self:center}}
+@media(min-width:1000px){
+ .cols{grid-template-columns:min(50%,calc((100vh - 30px)*.667 + 30px)) minmax(0,1fr)}
+ .L .frame{width:100%;max-width:none;border-width:10px}
+ .stats2{font-size:1.02rem;gap:0 18px}.art .pl{font-size:1.05rem}
+ .art .ctl button{padding:9px 20px;font-size:1.05rem}
+ .wp{width:40px;height:40px;margin:-20px 0 0 -20px;font-size:16px}
+ .kn{font-size:30px}.kn.big{font-size:44px}
+}
+@media(min-width:1000px){
+ .hero .sub{display:none}.hero{padding:6px 20px;margin-bottom:10px}.hero h1{font-size:1.7rem;margin:0}
+ .cols{grid-template-columns:min(50%,calc((100vh - 96px)*.667 + 30px)) minmax(0,1fr)}
+ .L{top:8px}
+}
+@media(min-width:1000px){.stats2{font-size:.9rem;gap:0 14px}.art .pl{font-size:.92rem}.art .top{padding-bottom:14px}.L .frame{margin-bottom:0}}
 </style></head><body><div id="bg"></div><main>
 <header class="hero"><div class="o">✠</div><h1>Liberio y la Niebla del Poder</h1><p class="sub">Crónica de la Ciudad Gris</p></header>
 <div class="cols" data-tab="study"><div class="A"><div class="box idle"><div class="tb" id="tb">0</div><div class="rt" id="rt"></div>
@@ -345,7 +359,8 @@ const EPI="Epílogo. Aurelia volvió a llamarse Aurelia y las campanas ya no se 
 const EV=["Un panadero de la resistencia paga su deuda con tinta de roble.","Un copista clandestino pasa una página en limpio y el scriptorium gana tinta.","Una anciana deja un rosario y una ofrenda en el scriptorium.","El Directorio publica un edicto absurdo; Liberio lo archiva como ejemplo.","Un viejo archivista dona frascos de tinta salvados de la quema.","Un espía de la resistencia entrega un informe y rechaza el pago."];
 const RANK=["Escudero","Doncel","Bachiller","Caballero novel","Caballero letrado","Hidalgo de la Pluma","Barón del Códice","Vizconde","Conde de las Cartas","Marqués","Duque de Libertas","Senescal","Gran Canciller de la Pluma","Mano de la Corona","Archiduque de Libertas"];
 const UP=[["Pluma de ganso","+1 tinta/s",10,1],["Tintero de roble","+5 tinta/s",60,5],["Escriba aprendiz","+25 tinta/s",400,25],["Scriptorium","+120 tinta/s",2500,120],["Biblioteca de Villaluz","+600 tinta/s",15000,600],["Academia de la Pluma","+3000 tinta/s",100000,3000]];
-const MI=[["Catequista itinerante","+1 fiel/s",500,1],["Parroquia clandestina","+6 fieles/s",4000,6],["Escuela de la Pluma","+40 fieles/s",30000,40],["Catedral de Aurelia","+250 fieles/s",250000,250]];
+const MAXM=25;
+const MI=[["Catequista itinerante","+0,5 fieles/día",500,.5],["Parroquia clandestina","+3 fieles/día",4000,3],["Escuela de la Pluma","+20 fieles/día",30000,20],["Catedral de Aurelia","+125 fieles/día",250000,125]];
 const SH=[["lampara","Lámpara de aceite","+10% de tinta",1500],["escudo","Escudo de la Orden","Escribir rinde el 30% de tu producción (antes 12%)",3000],["rosario","Rosario de Isaura","Las tareas dan el doble de tinta",8000],["caballo","Caballo blanco","Expediciones de 30 s en vez de 45 s",12000],["bendicion","Bendición del Padre Anselmo","Cada día de racha suma ×0,10 (antes ×0,05)",20000],["sello","Sello de la Carta","Eventos aleatorios el doble de frecuentes",50000],["biblio","Biblioteca de campaña","Hasta 24 h de progreso offline (antes 8 h)",100000],["campana","Campana de Aurelia","+25% de fieles por segundo",250000]];
 const META=1e6;
 const P=[[30,83],[58,81],[76,79],[50,75],[24,71],[42,66],[68,64],[84,59],[62,56],[36,53],[54,48],[80,45],[62,41],[71,37]];
@@ -356,7 +371,8 @@ const ST=[
 ["Variada",[["KEXP Seattle (indie)","https://kexp.streamguys1.com/kexp160.aac"],["Radio Paradise (ecléctica)","https://stream.radioparadise.com/mp3-128"]]]];
 const DEF=()=>({t:0,u:[0,0,0,0,0,0],d:{},paid:{},pos:0,last:Date.now(),streak:0,claim:"",log:[],vol:.6,lg:{},clk:0,exn:0,ex:0,sh:{},mi:[0,0,0,0],fv:0,bf:0,cd:{},mk:{}});let S=DEF();
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
-S.u=UP.map((_,i)=>S.u[i]||0);S.mi=MI.map((_,i)=>S.mi[i]||0);
+function mig(){S.u=UP.map((_,i)=>S.u[i]||0);S.mi=MI.map((_,i)=>Math.min(MAXM,S.mi[i]||0));if(!S.v2){S.v2=1;S.fv=Math.min(S.fv||0,20000)}}
+mig();
 const T=i=>{const a=[0,1,2,3].map(k=>"Semana "+(k+1)+": "+M[i][3][k]);a.push("Ficha del libro (3 ideas, 1 objeción, 1 duda)","Hoja que responde la pregunta guía");if(i%3==2)a.push("Repaso trimestral: reescribir ideas principales");return a};
 const isDone=i=>{const d=S.d[i];return !!d&&d.length==T(i).length&&d.every(Boolean)};
 const nDone=()=>M.filter((_,i)=>isDone(i)).length;
@@ -364,12 +380,12 @@ const open=i=>i==0||isDone(i-1);
 const buff=()=>S.bf>Date.now();
 const mult=()=>(1+.25*nDone()+(S.sh.bendicion?.1:.05)*Math.min(S.streak,20))*(S.sh.lampara?1.1:1)*(buff()?1.5:1);
 const fieles=()=>20000*nDone()+S.fv;
-const fvRate=()=>MI.reduce((a,m,i)=>a+S.mi[i]*m[3],0)*(S.sh.campana?1.25:1)*(buff()?3:1);
+const fvRate=()=>MI.reduce((a,m,i)=>a+S.mi[i]*m[3],0)/86400*(S.sh.campana?1.25:1)*(buff()?3:1);
 const EXD=()=>S.sh.caballo?30000:45000;
 const mcost=i=>Math.ceil(MI[i][2]*Math.pow(1.15,S.mi[i]));
-const rate=()=>(.5+S.u.reduce((a,n,i)=>a+n*UP[i][3],0))*mult();
+const rate=()=>(.5+S.u.reduce((a,n,i)=>a+n*UP[i][3],0))*mult()*.05;
 const pcost=()=>Math.max(3000,Math.ceil(rate()*90));
-const cost=i=>Math.ceil(UP[i][2]*Math.pow(1.15,S.u[i]));
+const cost=i=>Math.ceil(UP[i][2]*Math.pow(1.2,S.u[i]));
 const fmt=n=>n>=1e6?(n/1e6).toFixed(2)+"M":n>=1e4?(n/1e3).toFixed(1)+"k":Math.floor(n);
 const save=()=>{S.last=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const say=m=>{S.log.unshift(m);S.log=S.log.slice(0,6);save();rLog()};
@@ -413,8 +429,8 @@ function rStats(){
  $("#exb").style.width=(left>0?Math.max(0,100-left/EXD()*100):0)+"%";
  $("#fn").textContent=Math.floor(fieles()).toLocaleString("es");
  const pf=Math.min(100,fieles()/META*100);$("#fb").style.width=pf+"%";
- $("#fs").textContent=pf.toFixed(1)+"% de Libertas convertida · +"+fvRate().toFixed(1)+" fieles por segundo";
- document.querySelectorAll(".mb").forEach((b,i)=>b.disabled=S.t<mcost(i));
+ $("#fs").textContent=pf.toFixed(1)+"% de Libertas convertida · +"+Math.round(fvRate()*86400).toLocaleString("es")+" fieles por día";
+ document.querySelectorAll(".mb").forEach((b,i)=>b.disabled=S.t<mcost(i)||S.mi[i]>=MAXM);
  document.querySelectorAll(".sb").forEach(b=>b.disabled=S.t<SH[+b.dataset.i][3]);
  const pr=$("#pr");if(pr){const bl=buff()?S.bf-Date.now():0;pr.disabled=bl>0||S.t<pcost();pr.textContent=bl>0?"En curso "+Math.ceil(bl/1000)+" s":"Organizar";$("#pc").textContent=fmt(pcost())}
  chkLg();
@@ -455,12 +471,12 @@ function rUps(){
 }
 function rShop(){
  let h="<h2>Misiones (suman fieles)</h2>";
- MI.forEach((m,i)=>h+="<div class='up'><div><b>"+m[0]+"</b> ("+S.mi[i]+")<small>"+m[1]+" · coste "+fmt(mcost(i))+"</small></div><button class='mb' data-i='"+i+"'>Fundar</button></div>");
+ MI.forEach((m,i)=>h+="<div class='up'><div><b>"+m[0]+"</b> ("+S.mi[i]+"/"+MAXM+")<small>"+m[1]+(S.mi[i]>=MAXM?" · máximo":" · coste "+fmt(mcost(i)))+"</small></div><button class='mb' data-i='"+i+"'>"+(S.mi[i]>=MAXM?"Completa":"Fundar")+"</button></div>");
  h+="<h2 style='margin-top:14px'>Reliquias y bendiciones</h2>";
  SH.forEach((x,i)=>h+="<div class='up'><div><b>"+x[1]+"</b><small>"+x[2]+(S.sh[x[0]]?"":" · coste "+fmt(x[3]))+"</small></div>"+(S.sh[x[0]]?"<span class='own'>Adquirida</span>":"<button class='sb' data-i='"+i+"'>Comprar</button>")+"</div>");
  h+="<h2 style='margin-top:14px'>Ceremonias</h2><div class='up'><div><b>Procesión solemne</b><small>60 s: fieles ×3 y tinta ×1,5 · coste <span id='pc'></span></small></div><button id='pr'>Organizar</button></div>";
  $("#shop").innerHTML=h;
- $("#shop").querySelectorAll(".mb").forEach(b=>b.onclick=()=>{const i=+b.dataset.i,c=mcost(i);if(S.t>=c){S.t-=c;S.mi[i]++;save();rShop();rStats()}});
+ $("#shop").querySelectorAll(".mb").forEach(b=>b.onclick=()=>{const i=+b.dataset.i,c=mcost(i);if(S.t>=c&&S.mi[i]<MAXM){S.t-=c;S.mi[i]++;save();rShop();rStats()}});
  $("#shop").querySelectorAll(".sb").forEach(b=>b.onclick=()=>{const x=SH[+b.dataset.i];if(!S.sh[x[0]]&&S.t>=x[3]){S.t-=x[3];S.sh[x[0]]=1;say("Adquirido: "+x[1]+".");rShop();rStats()}});
  $("#pr").onclick=()=>{const c=pcost();if(S.t>=c&&!buff()){S.t-=c;S.bf=Date.now()+60000;say("Procesión solemne por las calles de Aurelia: fieles ×3 y tinta ×1,5 durante 60 s.");rShop();rStats()}};
 }
@@ -594,7 +610,7 @@ const slotGet=n=>{try{return JSON.parse(localStorage.getItem(SK(n)))}catch(e){re
 function renderAll(){rArt();rPanel();rUps();rShop();rCart();rCr();rLg();rLog();rSv();rStats()}
 function loadSt(d,msg){
  if(!d||typeof d!="object"||!d.d||typeof d.t!="number"){sm("Archivo no válido.");return}
- S=Object.assign(DEF(),d);S.u=UP.map((_,i)=>S.u[i]||0);S.mi=MI.map((_,i)=>S.mi[i]||0);S.last=Date.now();save();
+ S=Object.assign(DEF(),d);mig();S.last=Date.now();save();
  $("#rv").value=S.vol;au.volume=S.vol;CV={m:null,w:null};renderAll();sm(msg)}
 function rSv(){
  let h="";
