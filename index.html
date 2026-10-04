@@ -128,31 +128,93 @@ button:not(:disabled):hover{filter:brightness(1.12)}
  .L{position:sticky;top:12px;display:block}
  .L .frame{width:min(100%,calc((100vh - 52px)*.667 + 28px));max-width:none;margin:0 auto}
 }
+.fi{text-align:center;border-width:2px;background:linear-gradient(rgba(74,28,40,.93),rgba(52,19,28,.93))}
+.fn{font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.1;color:var(--gold);text-shadow:0 0 14px #c9a24a55}
+.fi .bar{max-width:460px;margin:10px auto 6px;height:10px}
+.fi small{opacity:.85}
+#shop h2{margin-top:2px}
+.own{color:var(--gold);font-style:italic;opacity:.8}
+.esc{border-left:3px solid var(--gold);padding-left:12px;font-style:italic}
+.esc b{color:var(--gold);font-weight:normal}
+@media(min-width:1000px){.cr{max-height:78vh;overflow-y:auto}}
+.cart h2{margin-top:14px}.cart h2:first-child{margin-top:0}
+.cd{display:grid;grid-template-columns:7.5em 1fr 6.5em;gap:8px;padding:7px 8px;border-top:1px solid #c9a24a33;align-items:start}
+.cd.hoy{background:#c9a24a22;border-left:3px solid var(--gold)}
+.cd .st{text-align:right;color:var(--gold)}
+.wk{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0}
+.wk .ok{color:var(--gold)}.wk .cur{font-weight:bold}
+.moral{border-left:3px solid #8fb0d8;padding-left:12px}
+.moral b{color:#9dbbe3;font-weight:normal}
+@media(max-width:600px){.cd{grid-template-columns:1fr auto}.cd span:nth-child(2){grid-column:1/-1;order:3}}
+.ch{margin:18px 0 4px;color:var(--gold);font-weight:normal;font-size:1.25rem;font-style:italic;border-top:1px solid #c9a24a44;padding-top:10px}
+.sw{padding:6px 12px}
+.sw.on{background:var(--iv);color:var(--ink)}
+.dl{cursor:pointer;display:inline-flex;gap:6px;align-items:center;font-size:.95rem}
+.dk{width:20px;height:20px;accent-color:#c9a24a}
 @media(prefers-reduced-motion:reduce){.kn{transition:none}.kn.big{animation:none}}
+
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 3px 14px}
+.tabs button{background:#34131ce6;color:var(--iv);border:1px solid var(--gold);padding:9px 16px}
+.tabs button.on{background:var(--gold);color:var(--ink)}
+.cols [data-tab]{display:none}
+.cols[data-tab="study"] [data-tab="study"],.cols[data-tab="work"] [data-tab="work"],.cols[data-tab="lore"] [data-tab="lore"],.cols[data-tab="set"] [data-tab="set"]{display:block}
+.cart .mes{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.mc{min-width:2.3em;padding:5px 8px;background:#0006;color:var(--iv);border:1px solid #c9a24a66}
+.mc.on{background:var(--iv);color:var(--ink);border-color:var(--gold)}
+.mc.ok{border-color:var(--gold);color:var(--gold)}.mc.on.ok{color:var(--ink)}
+.mc.no{border-color:#c0584a;color:#e89a8c}.mc.on.no{color:#7a1f2b}
+.sg{display:inline-flex;gap:4px;flex-wrap:wrap}
+.tg{padding:5px 11px;background:transparent;color:var(--iv);border:1px solid #c9a24a77;font-size:.9rem}
+.tg.ok.on{background:var(--ver);color:#fff;border-color:#7fc8a9}
+.tg.no.on{background:#8c2f3a;color:#fff;border-color:#e89a8c}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:8px 0}
+.cart .cd{grid-template-columns:8em 1fr auto}
+.cart .cd.hoy .st{color:var(--iv)}
+.cd.ok{background:#2f5a4c33}.cd.no{background:#8c2f3a26}
+.cart label.dl{font-size:1rem}
+@media(max-width:600px){.cart .cd{grid-template-columns:1fr auto}}
+@media(min-width:1000px){
+ html{font-size:18px}body{font-size:1rem}
+ main{max-width:1700px;padding:16px 28px}
+ .hero{padding:16px 20px;margin-bottom:14px}.hero h1{font-size:2rem}.hero .o{display:none}
+ .cols{grid-template-columns:minmax(440px,42%) 1fr;column-gap:28px}
+ .L{position:sticky;top:10px}
+ .L .frame{width:min(100%,calc((100vh - 130px)*.667 + 28px))}
+ .idle{padding:12px 12px 14px}.tb{font-size:3.2rem}.rt{margin-bottom:8px}.wr{font-size:1.25rem;padding:12px 34px}
+ .ex{margin-top:10px}.fn{font-size:2.4rem}
+ .cr{max-height:none!important}
+ .cart,.scroll{max-width:980px}
+}
+@media(min-width:1500px){html{font-size:19px}}
+@media(min-width:1900px){html{font-size:20px}}
 </style></head><body><div id="bg"></div><main>
 <header class="hero"><div class="o">✠</div><h1>Liberio y la Niebla del Poder</h1><p class="sub">Crónica de la Ciudad Gris</p></header>
-<div class="cols"><div class="A"><div class="box idle"><div class="tb" id="tb">0</div><div class="rt" id="rt"></div>
+<div class="cols" data-tab="study"><div class="A"><div class="box idle"><div class="tb" id="tb">0</div><div class="rt" id="rt"></div>
 <button class="wr" id="wr">Escribir en el códice</button>
 <div class="ex"><button id="ex">Enviar a Isaura de expedición</button><div class="bar"><div id="exb"></div></div></div>
-<p class="mini kb">Atajos: Q escribir · E expedición · R lectura de hoy · 1 al 6 mejoras · ← → caminar</p></div>
-<div class="box"><h2>Taller del scriptorium</h2><div id="ups"></div></div>
+<p class="mini kb">Atajos: Q escribir · E expedición · R lectura de hoy · 1 al 6 mejoras · ← → caminar · T cambia de pestaña</p></div>
+<div class="box fi"><h2>✠ Fieles convertidos ✠</h2><div class="fn" id="fn">0</div><div class="bar"><div id="fb"></div></div><small id="fs"></small></div>
+<div class="tabs" id="tabs"></div>
+<div class="box" data-tab="work"><h2>Taller del scriptorium</h2><div id="ups"></div></div>
+<div class="box" data-tab="work"><h2>Tienda de la Orden</h2><p class="mini">Gastá tu tinta en misiones, reliquias y ceremonias.</p><div id="shop"></div></div>
 </div><div class="L">
 <div class="frame"><div class="art" id="art"><div class="pic"></div><div class="fog"></div><div class="lite"></div><div id="path"></div><div id="wp"></div><div class="kn" id="k2">♘</div><div class="kn big" id="k1">♞</div>
 <div class="top"><div class="stats2" id="st"></div><div class="pl" id="pl"></div></div>
 <div class="ctl"><button id="l" aria-label="Retroceder">◀</button><button id="r" aria-label="Avanzar">▶</button><button id="dc">Lectura de hoy</button></div></div></div>
 
-</div><div class="B"><div class="scroll" id="pn"></div>
-<div class="box"><h2>Radio de la corte (EE. UU.)</h2>
- <div class="rad"><select id="rs" aria-label="Emisora"></select><button id="rp">Escuchar</button></div>
+</div><div class="B"><div class="box cart" id="cart" data-tab="study"></div>
+<div class="scroll" id="pn" data-tab="study"></div>
+<div class="box" data-tab="set"><h2>Radio de la corte</h2>
+ <div class="rad"><select id="rs" aria-label="Emisora"></select><button id="rp">Escuchar</button><button id="rn" title="Probar la siguiente emisora">Siguiente</button></div>
  <div class="rad"><label>Volumen <input type="range" id="rv" min="0" max="1" step=".05"></label></div>
  <div class="rad"><input type="text" id="ru" placeholder="Pegá otra URL de stream" size="26"><button id="ra">Agregar</button></div>
  <small id="rm">Necesita internet. Si una emisora no responde, probá otra.</small>
 </div>
 
-<div class="box cr" id="cr"></div>
-<div class="box" id="lg"></div>
-<div class="box" id="log"></div>
-<div class="box"><h2>Guardado de partida</h2><p class="mini">Se guarda sola en este navegador. Acá podés hacer copias y llevarlas a otro equipo.</p><div id="sv"></div>
+<div class="box cr" id="cr" data-tab="lore"></div>
+<div class="box" id="lg" data-tab="lore"></div>
+<div class="box" id="log" data-tab="lore"></div>
+<div class="box" data-tab="set"><h2>Guardado de partida</h2><p class="mini">Se guarda sola en este navegador. Acá podés hacer copias y llevarlas a otro equipo.</p><div id="sv"></div>
 <div class="rad" style="margin-top:8px"><button id="ex2">Exportar a archivo</button><button id="ib">Importar archivo</button><input type="file" id="im" accept=".json,application/json" hidden><button id="nw">Nueva partida</button></div><small id="sm"></small></div>
 <p class="sub" style="text-align:center">La tinta fluye sola, pero solo tus tareas reales abren el camino.</p>
 </div></div>
@@ -185,37 +247,86 @@ const M=[
 ["Críticas y síntesis final","Rawls, Keynes, tus 13 fichas","¿Qué defendería hoy y qué objeción es la más fuerte?",["Rawls: posición original","Keynes: demanda agregada y Estado","Mapa comparativo de corrientes","Ensayo final de 5 a 8 páginas"]]];
 
 const C=[
-["Códice de los Derechos","Liberio rescata de la quema el primer códice, y con él su misal. Locke dice que los derechos preceden al trono; Constant y Bastiat le enseñan a distinguir la ley del saqueo con sello oficial. Para Liberio esa dignidad viene de Dios. Isaura entra al Directorio con nombre falso. Parten un anillo en dos mitades y rezan juntos antes de separarse."],
-["Sello del Daño","En las catacumbas bajo la iglesia de San Miguel nace la resistencia, y el Padre Anselmo celebra Misa a oscuras. Mill le da la regla: solo el daño ajeno justifica la fuerza; Tocqueville, la advertencia: una mayoría que obedece sin pensar también es tirana. Liberio conoce a Tomás, cartógrafo, y le confía la vida."],
-["Balanza de Smith","Voskhar firma el Decreto contra la Superstición: iglesias cerradas, crucifijos confiscados y la horca para todo practicante. En el mercado negro de Villaluz, un panadero cambia pan por oraciones y en su cuadra nadie pasa hambre. Smith tenía razón: el interés propio, con simpatía, sostiene a una ciudad. Isaura envía su primera carta en clave, dentro de una hogaza."],
-["Lupa de Villaluz","El Directorio fija el precio del pan y el pan desaparece. Hazlitt enseña a Liberio a mostrar lo que no se ve. Estalla un motín en la cola y Ketz cuelga en la plaza a un panadero acusado de acaparar y de rezar; esa semana cuelgan a tres más. La ciudad calla, pero ya no cree."],
-["Pergamino del Saber Disperso","Isaura copia en secreto los informes de la Torre del Plan y descubre que las cifras son inventadas. Mises y Hayek lo explican: nadie puede conocer lo que saben millones. Una noche se ven entre estantes vacíos, rezan el rosario juntos y, por primera vez en meses, ríen."],
-["Mapa del Camino Torcido","Voskhar decreta el Plan Quinquenal, y cada plan exige otro. Tomás, endeudado, vende al comisario el mapa de las catacumbas. En la redada caen cuarenta fieles y el Padre Anselmo, y todos son ahorcados en la plaza. Liberio escapa por un instante y jura no volver a confiar a ciegas."],
-["Estandarte de la Ley","Liberio presencia un juicio del pueblo sin defensa ni ley: basta confesar la fe para ser condenado. Hayek lo convence: libertad es vivir bajo normas generales, no bajo el capricho de un jefe, y eso incluye la libertad de conciencia. Redacta la Carta de la Ciudad. Isaura le avisa que Ketz sospecha de una copista."],
-["Ábaco Austriaco","Sin precios la Torre calcula a ciegas: apagones, fábricas sin insumos, un invierno de hambre. Isaura roba el libro de cuentas y Liberio demuestra al barrio, con números, que el Plan fracasó. En Nochebuena el barrio reza en voz baja alrededor de una vela. Ella sale ilesa, pero ahora la miran."],
-["Cetro de Chicago","Friedman y la elección pública le enseñan algo útil: los gobernantes también siguen incentivos. Liberio enfrenta al ministro Dorr con Ketz y el Directorio empieza a devorarse a sí mismo. En la confusión, Ketz arresta a Isaura por espía y por creyente."],
-["Espada de la No Agresión","Liberio podría asaltar la prisión, pero Isaura le envía un mensaje: no inicies la fuerza, que la ciudad vea la diferencia. En el juicio-farsa le ofrecen la vida si abjura de su fe y delata a la red. Se niega. La ahorcan al alba rezando por sus verdugos. Liberio guarda su mitad del anillo y la reconoce mártir."],
-["Balanza del Estado Mínimo","Luto y debate: unos rebeldes, con Rothbard, quieren abolir todo Estado; otros, con Nozick, uno mínimo. Liberio los obliga a decidir después de ganar. Mara Voss, espía de Ketz, llega con las listas del Directorio y la prueba de quién mandó ahorcar a Isaura. Antes de entregarlas pide ser bautizada."],
-["Constitución del Sur","Alberdi lo inspira: poblar, abrir el comercio, escribir una constitución. Las comarcas del Sur se alzan; Vargas Llosa le recuerda que la tribu siempre quiere volver, y Liberio responde con otra tribu: la parroquia. Dario, capitán de la Orden, traiciona y entrega a Voskhar una columna entera."],
-["Astrolabio del Emprendedor","Pese a la traición, los emprendedores de los sótanos reparten pan, leña y medicinas sin mando central, y las parroquias clandestinas los acogen. Huerta de Soto lo llama función empresarial. Voskhar manda a Ketz al paredón por fracasar y Mara abre las puertas del Palacio a la resistencia."],
-["Corona del Juicio","Liberio llega ante Voskhar, que no es un tonto: con Rawls y Keynes le pregunta qué hará por los que queden atrás. Liberio responde con la Carta de la Ciudad, ofrece libertad de culto incluso a sus verdugos y no lo ejecuta: lo entrega a un tribunal con ley. La Niebla se disipa. Sobre la tumba de Isaura une las dos mitades del anillo y reza por ella."]];
-const PRO="Aurelia fue la ciudad de los mercados y de las campanas, capital de Libertas. Hoy es la Ciudad Gris. El Camarada Supremo Voskhar prometió pan igual para todos y repartió miseria igual para todos: colas de racionamiento, tiendas vacías, precios fijados por edicto y una Oficina de la Igualdad con espías en cada portal. Teme además a la fe, porque un pueblo que reza no se deja contar. Liberio, archivista de la Orden de la Pluma y ferviente católico apostólico romano, vio arder su biblioteca y su parroquia en la Noche de los Libros. Su esposa Isaura, copista y también creyente, fingirá lealtad dentro del Directorio. Él recorre Libertas en busca de los Códices que devuelvan a la gente las palabras para pedir libertad, y sueña con una Libertas entera convertida, ganada por la palabra y el ejemplo, nunca por la espada. Ambos saben que quizá no vuelvan a verse.";
-const CAST="Personajes: Liberio, archivista, caballero de la Pluma y católico fervoroso. Isaura, su esposa, infiltrada en el Directorio. Voskhar, el Camarada Supremo. Ketz, comisario de la Oficina de la Igualdad y jefe de los espías. Padre Anselmo, que celebra Misa en las catacumbas. Tomás, cartógrafo y viejo amigo. Mara Voss, espía con dudas. Dario, capitán de la Orden.";
-const EPI="Epílogo. Aurelia vuelve a llamarse Aurelia y las campanas suenan otra vez. Los mercados reabren, los libros regresan a la biblioteca y los templos a los fieles. Liberio no toma el poder: devuelve las llaves a la gente. Su misión sigue, sin armas: convertir a toda Libertas con la palabra y el ejemplo, como Isaura. Le queda además decidir con qué bandera se queda, y por qué.";
+["Códice de los Derechos","Liberio salió de Aurelia con un morral, el misal y una certeza: sin las Cartas la gente ni siquiera tendría palabras para pedir lo que le habían quitado. En el Valle de los Antiguos halló el primer códice, oculto en un molino abandonado. Allí leyó a Locke: que los hombres tienen derechos —vida, libertad, propiedad— antes de que exista gobierno alguno, y que el gobierno existe para protegerlos, no para concederlos. Constant le mostró que la libertad moderna es vivir en paz y sin miedo, y Bastiat, que la ley se pervierte cuando sirve para saquear legalmente. Para Liberio, cuya fe enseñaba que la dignidad de la persona viene de Dios, todo encajaba. Pero ni la certeza quita el miedo, y esa noche, en el molino, lloró a escondidas."],
+["Sello del Daño","De vuelta en Aurelia, Liberio descubrió que la resistencia era un puñado de gente asustada reunida en las catacumbas bajo la iglesia de San Miguel. El Padre Anselmo los recibió con pan duro y una Misa en voz baja. Allí leyó a Mill: que la libertad de cada uno solo debe limitarse para evitar el daño a otros, y que silenciar una opinión, aun falsa, empobrece a todos. Leyó a Tocqueville: que la igualdad sin libertad puede volverse una servidumbre dulce, y que el mayor peligro de una democracia es la tiranía de la mayoría. Los refugiados lo escuchaban sin entender del todo, pero asentían. Entonces un joven cartógrafo llamado Tomás les ofreció mapas de las cloacas y los pasadizos. Era simpático, y Liberio, que quería creer en alguien, le confió la vida."],
+["Balanza de Smith","El Decreto contra la Superstición cayó sobre Aurelia un amanecer de lluvia: crucifijos confiscados, templos clausurados y la horca para todo practicante. Liberio vio a los vecinos descolgar en silencio las cruces de sus paredes. Pero en el mercado negro de Villaluz, entre puestos clandestinos, un panadero cambiaba pan por versos y oraciones, y en su cuadra nadie pasaba hambre. Allí entendió a Adam Smith: que el panadero no hornea por bondad sino por interés, y que esa búsqueda del propio beneficio, dentro de leyes justas, alimenta a todos. Pero Smith también escribió sobre la simpatía y el espectador imparcial: sin conciencia, el interés propio no sostiene una sociedad. Esa noche llegó una hogaza tibia con la primera carta de Isaura."],
+["Lupa de Villaluz","El Directorio fijó el precio del pan por edicto, creyendo que así nadie pasaría hambre. A la semana, las panaderías cerraron: vender a ese precio era perder. Liberio, ya con Hazlitt entre las manos, enseñó en los barrios la lección central: mirar no solo lo que se ve, el pan barato, sino lo que no se ve, el pan que ya no se hornea. Sowell le dio el resto: los precios son información, y los incentivos mueven más que las intenciones. Estalló un motín en la cola del pan. Ketz respondió con la horca: un panadero acusado de acaparar, y de rezar, fue colgado en la plaza, y tres más esa semana. La ciudad calló, pero ya no creía."],
+["Pergamino del Saber Disperso","En la Torre del Plan, Isaura copiaba informes todo el día y de noche, a la luz de una vela, los leía con otros ojos. Las cifras no cuadraban: eran inventadas, copiadas de planes anteriores, ajustadas para no enojar al Camarada. Liberio estudiaba en paralelo a Mises y Hayek: que sin precios libres nadie puede calcular, y que el saber necesario para coordinar una sociedad está disperso entre millones de personas que ningún planificador puede reunir. Cuando Isaura le contó lo que había visto, ambos comprendieron que el Plan no era un error sino una imposibilidad. Se vieron esa noche, en secreto, entre estantes vacíos, y por una hora fueron solo dos personas que se querían."],
+["Mapa del Camino Torcido","Voskhar anunció el Plan Quinquenal: cada fracaso del plan anterior exigía otro más ambicioso. Liberio leía Camino de servidumbre y reconocía cada página: que la planificación central, aun con buenas intenciones, concentra poder, y que quien concentra poder acaba controlando todos los aspectos de la vida. En esas mismas semanas Tomás, endeudado y asustado, vendió a Ketz el mapa de las catacumbas. La redada llegó antes del alba: cuarenta fieles y el Padre Anselmo fueron arrestados y ahorcados en la plaza mientras cantaban el Credo. Liberio los vio desde un tejado. Escapó por un instante, con el misal apretado contra el pecho, y juró no volver a confiar a ciegas."],
+["Estandarte de la Ley","Liberio se escondió en el barrio de los curtidores, entre olor a cuero y a miedo. Allí vio un juicio del pueblo: una madre acusada de enseñar el catecismo a su hija, sin defensor, sin pruebas, con la sentencia dictada antes de empezar. Leyó entonces Los fundamentos de la libertad: que libertad no es hacer lo que uno quiera sino no estar sometido al capricho de otro; que solo las normas generales, iguales para todos y conocidas de antemano, protegen de la arbitrariedad; y que el imperio de la ley es la muralla del individuo. Esa noche redactó la Carta de la Ciudad, con un primer artículo sobre la libertad de conciencia. Isaura le avisó por carta: Ketz sospechaba de una copista."],
+["Ábaco Austriaco","El invierno fue de hambre. La Torre del Plan, sin precios que le dijeran qué faltaba, mandaba harina donde sobraba y carbón donde no hacía falta. Hubo apagones, fábricas paradas, filas que duraban días. Liberio recordaba La acción humana: que sin precios de mercado no hay cálculo económico, y que sin cálculo el socialismo no puede asignar recursos racionalmente. Isaura logró sacar el libro de cuentas de la Torre, y Liberio demostró al barrio, con números, que el Plan no fallaba por sabotaje sino por diseño. En Nochebuena el barrio rezó en voz baja alrededor de una vela. Isaura salió ilesa de la Torre, pero ahora la miraban."],
+["Cetro de Chicago","Liberio estudió a Friedman, que sostiene que la libertad económica es condición de la libertad política, y a Buchanan y Tullock, que mostraron que políticos y burócratas también persiguen sus intereses. Se preguntó qué movía a los hombres del Directorio, y la respuesta no era el bien del pueblo sino el poder, el ascenso y la supervivencia. Con esa lectura enfrentó al ministro Dorr con Ketz, haciendo circular informes que cada uno creía filtrados por el otro. El Directorio empezó a devorarse a sí mismo. Pero en el caos Ketz recordó a la copista que preguntaba demasiado, y esa misma noche arrestó a Isaura, por espía y por creyente."],
+["Espada de la No Agresión","La prisión de Aurelia era fácil de asaltar, y Liberio lo sabía. Pero Isaura le hizo llegar un mensaje: no iniciar la fuerza, para que la ciudad viera la diferencia entre ellos y sus verdugos. Liberio estudiaba a Rothbard y su principio de no agresión —que nadie puede iniciar la violencia contra otro—, y nunca había sentido tan cruelmente el peso de esa idea. En el juicio-farsa le ofrecieron la vida si abjuraba de su fe y delataba a la red. Isaura se negó. La ahorcaron al alba, rezando por sus verdugos. Liberio guardó su mitad del anillo y reconoció a su esposa como mártir."],
+["Balanza del Estado Mínimo","Luto y debate. Los rebeldes se dividieron: unos, con Rothbard, querían abolir todo Estado; otros, con Nozick, uno mínimo, limitado a proteger contra la fuerza, el robo y el fraude. Hoppe, más radical aún, criticaba incluso la democracia. Liberio los obligó a decidir después de ganar: primero había que liberar la ciudad. Mara Voss, espía de Ketz, llegó una noche a su puerta con las listas del Directorio y la prueba de quién mandó ahorcar a Isaura. Antes de entregarlas pidió ser bautizada. Liberio, que tenía todas las razones del mundo para odiarla, la bautizó con el agua de un jarro."],
+["Constitución del Sur","Las comarcas del Sur se alzaron con azadas, rosarios y una constitución copiada a mano. Liberio había leído a Alberdi: que gobernar es poblar, que la libertad económica y una constitución sólida atraen inmigrantes y capital, y que el desarrollo no se decreta. Vargas Llosa le advertía, en cambio, que la tribu siempre quiere volver: el nacionalismo, el colectivismo, la nostalgia del jefe. Liberio respondió con otra tribu: la parroquia, la comunidad voluntaria. En el paso del río, el capitán Dario, su viejo compañero de la Orden, abrió la senda a las tropas del Directorio y entregó una columna entera a la emboscada."],
+["Astrolabio del Emprendedor","Pese a la traición, la resistencia no murió. En los sótanos, panaderos, enfermeras y carpinteros se organizaron sin que nadie los mandara: unos llevaban harina, otros leña, otros medicinas, y las parroquias clandestinas los acogían. Liberio leía a Huerta de Soto: que la función empresarial es la capacidad humana de descubrir oportunidades, coordinar y crear, y que ningún planificador puede reemplazarla. Voskhar, furioso por el fracaso, mandó a Ketz al paredón. Mara abrió las puertas del Palacio a la resistencia. Y Tomás, arrepentido, apareció a la puerta del sótano con el mapa del Palacio dibujado de memoria."],
+["Corona del Juicio","Liberio llegó ante Voskhar, que no era un tonto. Con Rawls y Keynes le hizo la pregunta más difícil: ¿qué harás por los que queden atrás? Rawls proponía imaginar la sociedad sin saber qué lugar ocuparíamos en ella; Keynes, que a veces el Estado debe sostener la demanda y proteger a los vulnerables. Liberio no tenía respuestas perfectas, pero sí una Carta de la Ciudad que garantizaba libertad de culto incluso a sus verdugos. No lo ejecutó: lo entregó a un tribunal con ley. La Niebla se disipó. Sobre la tumba de Isaura unió las dos mitades del anillo y rezó por ella."]];
+const E=[
+["La Noche de los Libros","Esa noche Liberio corrió entre las llamas con el misal contra el pecho. Vio caer las vigas de la biblioteca donde había aprendido a leer y a rezar. Isaura lo arrastró fuera del humo: «Los libros se rehacen, mi amor; las personas, no». En la estación del norte partió el anillo y le puso una mitad en la mano. «Escribe y reza. Yo volveré a copiarte lo que falte.» El tren se fue, y él leyó a la luz de un farol hasta el amanecer."],
+["Misa a oscuras","El Padre Anselmo alzó la hostia con manos temblorosas y una vela por toda iglesia. Eran doce bajo la bóveda húmeda, y nadie se atrevía a respirar fuerte. Liberio sintió que esa pequeña luz era más grande que la Torre del Plan. «No tengan miedo —susurró el sacerdote—: la Niebla puede cerrar los templos, pero no puede cerrar el cielo.» Esa noche nació la hermandad de los Escribas Orantes, con una sola regla: scribe et ora."],
+["La hogaza con carta","La carta llegó entre la miga todavía tibia. Isaura escribía en clave, con la letra que él conocía de memoria: «Aquí todos sonríen y nadie mira a nadie. Hoy me tocó copiar el Decreto contra la Superstición; lo copié con la mano más firme que pude, para que no notaran que lloraba. Cuídate. Come pan». Liberio guardó la carta junto al misal y esa noche, por primera vez en meses, el pan le supo a hogar."],
+["La plaza callada","Ahorcaron al panadero un martes de lluvia. Liberio miró desde un portal, con el sombrero hundido, mientras la multitud bajaba la cabeza. Nadie gritó, pero una anciana empezó a rezar en voz baja, otra voz la siguió, y otra, hasta que un murmullo recorrió la plaza como un viento. Ketz ordenó callar. Nadie obedeció del todo. Esa tarde Liberio supo que el miedo ya no gobernaba solo."],
+["La noche de los estantes vacíos","Se vieron una hora en la biblioteca clausurada. Isaura traía un rosario escondido en la manga; Liberio, un pedazo de pan. No hablaron de la guerra: hablaron de cuando fueran viejos, de una casa con un jardín pequeño, de un hijo al que llamarían Esteban, como el primer mártir. Ella rió, y él quiso detener el reloj. «Prométeme que si algo me pasa, seguirás», dijo ella. Él no pudo prometer. Solo la abrazó."],
+["La redada","Las botas rompieron las catacumbas antes del alba. Liberio sacó a los niños por el túnel del viejo osario, cargó a una anciana, empujó al último y volvió por el Padre Anselmo. El sacerdote le tomó las manos: «Hijo, alguien tiene que contar esto. Corre». En la plaza los condenados cantaron el Credo hasta el final. Desde un tejado, con los puños cerrados de rabia, Liberio oyó las voces apagarse una a una y juró que ninguna muerte sería inútil."],
+["El juicio sin ley","Vio juzgar a una madre por enseñar el catecismo a su hija. No hubo defensor ni pruebas: el tribunal tenía la sentencia antes de empezar. Esa noche, a la luz de un cabo de vela, Liberio escribió el primer artículo de la Carta de la Ciudad: «Nadie será castigado por lo que cree, sino solo por el daño que cause a otro». Lo leyó ante diez fieles. Era el comienzo de una ley que ninguna Torre podría derogar."],
+["La Nochebuena del hambre","No había pan ni leña. En el barrio las familias se juntaron alrededor de una vela y cantaron villancicos tan bajo que parecían un secreto. Un niño preguntó si el Niño Dios también tendría frío. Liberio, con la voz quebrada, le dio su abrigo y le dijo que por eso Dios eligió nacer pobre. A medianoche Isaura entró por la ventana con un saco de harina robado a la Torre. Cenaron veinte, de un solo pan."],
+["El banquete de los ministros","Dorr y Ketz se acusaron en pleno banquete del Directorio, y los criados contaron después que las copas volaron antes que las palabras. Mientras se devoraban entre sí, Liberio recorrió los barrios repartiendo volantes con las cuentas reales. Pero en el caos Ketz recordó a la copista que preguntaba demasiado, y esa misma noche golpearon la puerta de Isaura. Ella apagó la lámpara, besó su mitad del anillo y abrió."],
+["La última carta","La carta llegó cosida al forro de un abrigo: «Amor mío: me ofrecen la vida si niego lo que creo y entrego nombres. No lo haré. No es valentía: sin Dios y sin ustedes no habría vida que salvar. No vengas. Si empuñas la espada ganarás la prisión y perderás la ciudad. Hazles ver otra cosa. Perdona por mí a quien me ejecute; yo ya lo hice. Escribe y reza. Te espero». Liberio la leyó mil veces. Al alba las campanas de Aurelia no sonaron, pero él juró que las oyó."],
+["Las dos mitades","Mara Voss llegó con una lista y un pañuelo atado. Dentro había una mitad de anillo. «Me la dio en la celda —dijo—. Me pidió que te dijera que no la llores como a una derrota». Liberio sostuvo las dos mitades sin poder unirlas, porque la mano le temblaba. Mara cayó de rodillas: no pedía perdón, pedía agua y una palabra que la hiciera nueva. Con el agua del jarro, Liberio la bautizó en el sótano. Fue su primera conversión."],
+["El Sur en armas","Bajaron de las comarcas arrieros, peones y curas de pueblo, con azadas, rosarios y una constitución copiada a mano. Eran miles. En el paso del río Dario abrió la senda a las tropas del Directorio y la columna cayó en la emboscada. Herido, Liberio vio a un viejo labriego cubrirle la retirada con una cruz de madera en alto. Se salvaron seiscientos. Dario huyó, y Liberio no lo maldijo: lloró por él."],
+["El pan sin mando","En un sótano de la calle de los Curtidores, un panadero, una enfermera y un carpintero se organizaron sin que nadie los mandara: unos llevaban harina, otros leña, otros medicinas. Nadie planificó nada, y la ciudad empezó a comer. Liberio comprendió lo que había leído: el orden más fino nace de la acción de muchos, no del diseño de uno. Esa noche cayó Ketz, y el pueblo, sin odio, lo vio caer."],
+["Ante el trono","Entró al Palacio con la Carta de la Ciudad bajo el brazo y las dos mitades del anillo en el bolsillo. Voskhar lo esperaba sin guardias, cansado, y habló con una lucidez que dolía: «Prometí igualdad y fui cruel; tú prometes libertad: ¿qué harás con los que se queden atrás?». Liberio dejó la espada en el suelo: «Los ayudaremos sin obligar a nadie, y respetaremos incluso a quien me niegue». Afuera, por primera vez en años, sonaron las campanas. Al atardecer subió a la tumba de Isaura, unió el anillo y, de rodillas, rezó el Magníficat."]];
+const F=[
+["1","Unas cosas dependen de nosotros y otras no.","Liberio traza dos columnas en la última hoja del misal. A un lado pone la Niebla, el Directorio y la distancia; al otro, su juicio, su pluma y su oración. «Solo esta columna es mía», anota, y empieza a caminar más liviano."],
+["5","Lo que perturba a las personas no son las cosas, sino lo que opinan de ellas.","En la oscuridad de las catacumbas Anselmo le pregunta qué teme: ¿la cueva o el nombre que le da? Liberio aprende a separar el hecho de la impresión: esto es un refugio, no una tumba."],
+["8","No pretendas que las cosas ocurran como quieres: quiere que ocurran como ocurren, y vivirás en paz.","El decreto no se revoca llorando. Liberio deja de exigirle al mundo que sea otro y pregunta qué puede hacer con este. Reza «hágase tu voluntad» y descubre que no es rendirse, sino empezar por lo real."],
+["20","Quien te agravia no es el que te insulta o golpea, sino el juicio que haces sobre ello.","Ve colgar al panadero y siente un odio que lo quema. Entonces se detiene: el odio no devuelve al muerto, solo lo ata al verdugo. Elige indignarse sin odiar, decisión que tendrá que repetir cada mañana."],
+["17","Eres actor de un drama: el papel lo escoge otro; tú debes representarlo bien.","Liberio no eligió ser archivista perseguido ni Isaura copista infiltrada. «No me toca decidir cuánto dura la obra —escribe—; me toca no desentonar en mi escena»."],
+["11","Nunca digas «lo he perdido», sino «lo he devuelto».","Pierde a cuarenta hermanos y a su sacerdote. Cuando el dolor quiere atraparlo en el «por qué», recuerda que nada de lo que amó fue suyo en propiedad. Los devuelve a Dios con gratitud, sin fingir que la herida no duele."],
+["50","Sea cual sea la norma que te fijes, cúmplela como una ley, aunque nadie te mire.","Frente a una ley injusta, Liberio decide que la suya será igual para todos, también para quienes lo odian, y se la aplica primero a sí mismo. Una ley que no obliga a su autor no es ley: es una cadena."],
+["15","Compórtate en la vida como en un banquete: toma con moderación lo que te ofrecen.","La mesa es escasa y Liberio descubre que la generosidad no depende de la abundancia. Dar el abrigo y partir el pan no le cuesta su libertad: se la afirma. Cenan veinte y nadie se levanta con hambre de alma."],
+["14","Quien desea que sus seres queridos vivan siempre es insensato: quiere controlar lo que no depende de él.","Sabe que arrestarán a Isaura y no puede impedirlo. Se prohíbe contar los días que la tienen presa y elige actuar sobre lo único suyo: el siguiente paso. Entre la lágrima y el deber, escoge el deber sin dejar de llorar."],
+["53","Anito y Meleto pueden matarme, pero no dañarme.","Isaura vive lo que Liberio solo había leído: libre es aquel a quien ninguna amenaza puede forzar a traicionar su juicio. Liberio entiende al fin su propio nombre: liberto no es quien ya no tiene amo, sino aquel a quien ningún amo puede mover por dentro."],
+["42","Si alguien te trata mal, él sabrá por qué obra; a ti te toca cuidar tu propio juicio.","Mara fue instrumento del mal y ahora pide ser otra. Liberio tendría razones de sobra para odiarla; descubre que perdonar no depende de que ella lo merezca, sino de que él quiera ser libre del rencor."],
+["43","Cada cosa tiene dos asas: por una se la puede llevar, por la otra no.","Ante la traición de Dario, Liberio toma el asa que se puede cargar: no «me traicionó mi hermano de armas», sino «un hombre asustado eligió mal». La primera lo habría quebrado; la segunda lo deja en pie y capaz de rezar por él."],
+["13","Si quieres progresar, acepta que te tengan por necio.","Tomás regresa a las puertas del sótano con el mapa del Palacio dibujado de memoria y sin excusas. Muchos piden su castigo; Liberio lo deja entrar. Parece ingenuo y no le importa: el mapa les ahorra una noche de sangre, y a Tomás, una vida de vergüenza."],
+["53","Si es así, que así sea.","Ante Voskhar, Liberio no teme: sabe que pueden quitarle todo menos su carácter. Lo perdona, lo entrega a la ley y camina sin escolta. Entiende que la libertad por la que luchó no es un lugar al que se llega, sino la manera de caminar."]];
+const PR=[
+["El reino de las Siete Cartas","Antes de la Niebla, Libertas fue un reino pequeño, de valles estrechos y ciudades de mercado, que había aprendido a la fuerza lo que cuesta un rey sin freno. Tras una larga guerra de sucesión, los gremios, los obispos y los labriegos obligaron al trono a firmar las Siete Cartas: nadie sería preso sin juicio, la propiedad no se tomaría sin ley, la palabra y la conciencia serían libres, los impuestos se votarían, los jueces no obedecerían al rey, los pactos se cumplirían y toda autoridad respondería ante la ley. Se guardaron en la biblioteca de Aurelia, capital y ciudad de campanas, bajo la custodia de la Orden de la Pluma, cuyo lema era «scribe et ora»: escribe y reza. Durante tres siglos Aurelia fue rica sin ser perfecta, y libre sin ser pura."],
+["El ascenso del Camarada","La Niebla no llegó con ejércitos, sino con una promesa. Tras una mala cosecha y una crisis de deudas, un orador llamado Ivar Voskhar recorrió los barrios diciendo que la miseria era culpa de los mercaderes y que el pan debía repartirse por igual. Los gremios, cansados, lo aplaudieron. Fundó el Directorio del Pueblo y se hizo llamar Camarada Supremo. Fijó los precios por edicto y los comercios cerraron; confiscó los graneros y vino el hambre. Cada fracaso lo atribuyó a saboteadores, y así nació la Oficina de la Igualdad, con el comisario Ketz y sus espías en cada portal. Los que protestaban desaparecían; los que callaban recibían una cartilla de racionamiento."],
+["Contra la fe","Voskhar entendió pronto que un pueblo que reza no se deja contar: una conciencia que responde ante Dios nunca responde del todo ante el Directorio. Primero vació las iglesias de sus bienes, luego les arrancó los badajos a las campanas para que Aurelia no volviera a oírlas, y preparó el golpe final, un decreto que castigaría con la horca a todo practicante. Una ciudad sin campanas descubre de golpe cuánto puede pesar el silencio. En los barrios, sin embargo, la gente seguía rezando en cocinas y sótanos, en voz tan baja que parecía un secreto compartido."],
+["Liberio e Isaura","Liberio nació hijo de un encuadernador, creció entre pergaminos y a los doce años entró de aprendiz a la biblioteca de Aurelia. Llegó a archivista de la Orden de la Pluma, hombre de misa diaria que leía el misal por la mañana y el Enquiridión de Epicteto por la noche, convencido de que la fe y la razón se corrigen una a la otra. Su madre lo llamó Liberio en honor de los libertos, los esclavos que ganaron su libertad. Isaura, hija de una familia de copistas, tenía la letra más bella del reino y un humor que desarmaba. Se conocieron discutiendo por una coma en un manuscrito y se casaron en San Miguel, con el Padre Anselmo oficiando. No tenían para dos anillos, así que se dieron uno solo, de plata. «Si algún día hay que partirlo —bromeó ella—, que sea para volver a unirlo.»"],
+["La Noche de los Libros","En el tercer invierno del Directorio, Voskhar ordenó purgar la biblioteca de Aurelia: lo que no sirve al pueblo, decía, estorba al pueblo. Las Siete Cartas fueron lo primero que encontraron los inspectores y lo primero que quemaron. Mientras la plaza ardía en una hoguera de pergaminos, Liberio y los archivistas escondieron todos los códices que pudieron en distintas comarcas. Su plan era simple y desesperado: recuperarlos, estudiarlos y devolver al pueblo las palabras que había olvidado. Isaura propuso lo imposible: infiltrarse como copista en el Directorio, donde se redactaban los edictos. «Si la mentira tiene escribas —dijo—, la verdad también.» Liberio no quería dejarla. Ella no le dio opción."]];
+const PRO="Aurelia fue la ciudad de los mercados y de las campanas, capital de Libertas. Hoy es la Ciudad Gris. El Camarada Supremo Voskhar prometió pan igual para todos y repartió miseria igual para todos: colas de racionamiento, tiendas vacías, precios fijados por edicto y una Oficina de la Igualdad con espías en cada portal. Teme además a la fe, porque un pueblo que reza no se deja contar. Liberio, archivista de la Orden de la Pluma y ferviente católico apostólico romano y lector del Enquiridión de Epicteto —el esclavo liberado que enseñó que la libertad empieza en lo que depende de uno—, vio arder su biblioteca y su parroquia en la Noche de los Libros. Su esposa Isaura, copista y también creyente, fingirá lealtad dentro del Directorio. Él recorre Libertas en busca de los Códices que devuelvan a la gente las palabras para pedir libertad, y sueña con una Libertas entera convertida, ganada por la palabra y el ejemplo, nunca por la espada. Ambos saben que quizá no vuelvan a verse.";
+const CAST="Personajes: Liberio, archivista, caballero de la Pluma y católico fervoroso. Isaura, su esposa, infiltrada en el Directorio. Voskhar, el Camarada Supremo. Ketz, comisario de la Oficina de la Igualdad y jefe de los espías. Padre Anselmo, que celebra Misa en las catacumbas. Tomás, cartógrafo y viejo amigo. Mara Voss, espía con dudas. Dario, capitán de la Orden. Epicteto, el esclavo liberto cuyo Enquiridión Liberio lee junto al misal.";
+const EPI="Epílogo. Aurelia volvió a llamarse Aurelia y las campanas ya no se callaron. Un año después, entre los papeles de Isaura, apareció una última hoja: «Si lees esto, la Niebla se disipó. No me busques en los muros: búscame en cada pan compartido y en cada vela que alguien no apague. Siembra; que otros cosechen. Escribe y reza». Liberio la leyó en la plaza, ante miles que ya no tenían miedo. No tomó el poder: devolvió las llaves a la gente. Y sin armas, de puerta en puerta, empezó la tarea de su vida: convertir a Libertas con la palabra y el ejemplo, hasta que cada campana fuera una promesa. Le quedaba una pregunta propia, la de siempre: ¿con qué bandera te quedas, y por qué?";
 const EV=["Un panadero de la resistencia paga su deuda con tinta de roble.","Un copista clandestino pasa una página en limpio y el scriptorium gana tinta.","Una anciana deja un rosario y una ofrenda en el scriptorium.","El Directorio publica un edicto absurdo; Liberio lo archiva como ejemplo.","Un viejo archivista dona frascos de tinta salvados de la quema.","Un espía de la resistencia entrega un informe y rechaza el pago."];
 const RANK=["Escudero","Doncel","Bachiller","Caballero novel","Caballero letrado","Hidalgo de la Pluma","Barón del Códice","Vizconde","Conde de las Cartas","Marqués","Duque de Libertas","Senescal","Gran Canciller de la Pluma","Mano de la Corona","Archiduque de Libertas"];
 const UP=[["Pluma de ganso","+1 tinta/s",10,1],["Tintero de roble","+5 tinta/s",60,5],["Escriba aprendiz","+25 tinta/s",400,25],["Scriptorium","+120 tinta/s",2500,120],["Biblioteca de Villaluz","+600 tinta/s",15000,600],["Academia de la Pluma","+3000 tinta/s",100000,3000]];
+const MI=[["Catequista itinerante","+1 fiel/s",500,1],["Parroquia clandestina","+6 fieles/s",4000,6],["Escuela de la Pluma","+40 fieles/s",30000,40],["Catedral de Aurelia","+250 fieles/s",250000,250]];
+const SH=[["lampara","Lámpara de aceite","+10% de tinta",1500],["escudo","Escudo de la Orden","Escribir rinde el 30% de tu producción (antes 12%)",3000],["rosario","Rosario de Isaura","Las tareas dan el doble de tinta",8000],["caballo","Caballo blanco","Expediciones de 30 s en vez de 45 s",12000],["bendicion","Bendición del Padre Anselmo","Cada día de racha suma ×0,10 (antes ×0,05)",20000],["sello","Sello de la Carta","Eventos aleatorios el doble de frecuentes",50000],["biblio","Biblioteca de campaña","Hasta 24 h de progreso offline (antes 8 h)",100000],["campana","Campana de Aurelia","+25% de fieles por segundo",250000]];
+const META=1e6;
 const P=[[30,83],[58,81],[76,79],[50,75],[24,71],[42,66],[68,64],[84,59],[62,56],[36,53],[54,48],[80,45],[62,41],[71,37]];
-const ST=[["NPR News (noticias)","https://npr-ice.streamguys1.com/live.mp3"],["WQXR Nueva York (clásica)","https://stream.wqxr.org/wqxr"],["KUSC Los Ángeles (clásica)","https://playerservices.streamtheworld.com/api/livestream-redirect/KUSCAAC128.aac"],["WBGO Newark (jazz)","https://wbgo.streamguys1.com/wbgo128"],["Jazz24 Seattle (jazz)","https://live.wostreaming.net/direct/ppm-jazz24aac-ibc1"],["KEXP Seattle (indie)","https://kexp.streamguys1.com/kexp160.aac"],["Radio Paradise (eclética)","https://stream.radioparadise.com/mp3-128"],["SomaFM Groove Salad (calma)","https://ice1.somafm.com/groovesalad-128-mp3"],["SomaFM Drone Zone (para estudiar)","https://ice1.somafm.com/dronezone-128-mp3"]];
-const DEF=()=>({t:0,u:[0,0,0,0,0,0],d:{},paid:{},pos:0,last:Date.now(),streak:0,claim:"",log:[],vol:.6,lg:{},clk:0,exn:0,ex:0});let S=DEF();
+const ST=[
+["Noticias",[["NPR News (nacional)","https://npr-ice.streamguys1.com/live.mp3"],["WBUR Boston (noticias NPR)","https://wbur-sc.streamguys.com/wbur.aac"],["WNYC Nueva York (noticias)","https://fm939.wnyc.org/wnycfm"],["KQED San Francisco (noticias)","https://streams.kqed.org/kqedradio"],["BBC World Service (internacional)","https://stream.live.vc.bbcmedia.co.uk/bbc_world_service"]]],
+["Música para estudiar",[["SomaFM Groove Salad (calma)","https://ice.somafm.com/groovesalad"],["SomaFM Drone Zone (ambiental)","https://ice.somafm.com/dronezone"],["SomaFM Deep Space One (ambiente profundo)","https://ice.somafm.com/deepspaceone"],["SomaFM Space Station Soma","https://ice.somafm.com/spacestation"],["SomaFM Mission Control (ambiente y NASA)","https://ice.somafm.com/missioncontrol"],["SomaFM Lush (voces suaves)","https://ice.somafm.com/lush"],["SomaFM Groove Salad Classic","https://ice.somafm.com/gsclassic"],["SomaFM Beat Blender","https://ice.somafm.com/beatblender"],["Radio Paradise Mellow","https://stream.radioparadise.com/mellow-128"]]],
+["Clásica y jazz",[["WQXR Nueva York (clásica)","https://stream.wqxr.org/wqxr"],["KUSC Los Ángeles (clásica)","https://playerservices.streamtheworld.com/api/livestream-redirect/KUSCAAC128.aac"],["WBGO Newark (jazz)","https://wbgo.streamguys1.com/wbgo128"],["Jazz24 Seattle (jazz)","https://live.wostreaming.net/direct/ppm-jazz24aac-ibc1"]]],
+["Variada",[["KEXP Seattle (indie)","https://kexp.streamguys1.com/kexp160.aac"],["Radio Paradise (ecléctica)","https://stream.radioparadise.com/mp3-128"]]]];
+const DEF=()=>({t:0,u:[0,0,0,0,0,0],d:{},paid:{},pos:0,last:Date.now(),streak:0,claim:"",log:[],vol:.6,lg:{},clk:0,exn:0,ex:0,sh:{},mi:[0,0,0,0],fv:0,bf:0,cd:{},mk:{}});let S=DEF();
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
-S.u=UP.map((_,i)=>S.u[i]||0);
+S.u=UP.map((_,i)=>S.u[i]||0);S.mi=MI.map((_,i)=>S.mi[i]||0);
 const T=i=>{const a=[0,1,2,3].map(k=>"Semana "+(k+1)+": "+M[i][3][k]);a.push("Ficha del libro (3 ideas, 1 objeción, 1 duda)","Hoja que responde la pregunta guía");if(i%3==2)a.push("Repaso trimestral: reescribir ideas principales");return a};
 const isDone=i=>{const d=S.d[i];return !!d&&d.length==T(i).length&&d.every(Boolean)};
 const nDone=()=>M.filter((_,i)=>isDone(i)).length;
 const open=i=>i==0||isDone(i-1);
-const mult=()=>1+.25*nDone()+.05*Math.min(S.streak,20);
+const buff=()=>S.bf>Date.now();
+const mult=()=>(1+.25*nDone()+(S.sh.bendicion?.1:.05)*Math.min(S.streak,20))*(S.sh.lampara?1.1:1)*(buff()?1.5:1);
+const fieles=()=>20000*nDone()+S.fv;
+const fvRate=()=>MI.reduce((a,m,i)=>a+S.mi[i]*m[3],0)*(S.sh.campana?1.25:1)*(buff()?3:1);
+const EXD=()=>S.sh.caballo?30000:45000;
+const mcost=i=>Math.ceil(MI[i][2]*Math.pow(1.15,S.mi[i]));
 const rate=()=>(.5+S.u.reduce((a,n,i)=>a+n*UP[i][3],0))*mult();
+const pcost=()=>Math.max(3000,Math.ceil(rate()*90));
 const cost=i=>Math.ceil(UP[i][2]*Math.pow(1.15,S.u[i]));
 const fmt=n=>n>=1e6?(n/1e6).toFixed(2)+"M":n>=1e4?(n/1e3).toFixed(1)+"k":Math.floor(n);
 const save=()=>{S.last=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
@@ -238,19 +349,32 @@ const LG=[
 ["Mecenas","Tener al menos una de cada mejora",()=>S.u.every(n=>n>0)],
 ["Red de mensajeros","Completar 5 expediciones",()=>S.exn>=5],
 ["Primera Misa","Completar 2 meses",()=>nDone()>=2],
-["Libertas creyente","Completar los 14 meses y ver el epílogo",()=>nDone()>=14]];
+["Libertas creyente","Completar los 14 meses y ver el epílogo",()=>nDone()>=14],
+["Mil almas","Alcanzar 1.000 fieles",()=>fieles()>=1000],
+["Cien mil fieles","Alcanzar 100.000 fieles",()=>fieles()>=1e5],
+["Libertas entera","Alcanzar 1.000.000 de fieles",()=>fieles()>=META],
+["Cliente fiel","Comprar 4 reliquias de la tienda",()=>Object.keys(S.sh).length>=4],
+["Tienda completa","Comprar todas las reliquias",()=>Object.keys(S.sh).length>=SH.length],
+["Trazar el mapa","Cumplir 7 días de lectura",()=>daysDone()>=7],
+["Un mes de constancia","Cumplir 30 días de lectura",()=>daysDone()>=30]];
 function chkLg(){let c=0;LG.forEach((l,i)=>{if(!S.lg[i]&&l[2]()){S.lg[i]=1;S.t+=200;c=1;say("Logro desbloqueado: "+l[0]+" (+200 de tinta).")}});if(c)rLg()}
 function rLg(){$("#lg").innerHTML="<h2>Logros ("+Object.keys(S.lg).length+"/"+LG.length+")</h2><div class='lgs'>"+LG.map((l,i)=>"<div class='lg"+(S.lg[i]?" on":"")+"'><b>"+l[0]+"</b><small>"+l[1]+"</small></div>").join("")+"</div>"}
 function rStats(){
  const n=nDone();
  $("#tb").textContent=fmt(S.t);
  $("#rt").textContent="+"+rate().toFixed(1)+" tinta por segundo · multiplicador ×"+mult().toFixed(2);
- $("#st").innerHTML="<span>Rango: <b>"+RANK[n]+"</b></span><span>Meses: <b>"+n+"/14</b></span><span>Fieles: <b>"+fmt(120*(n*n+n))+"</b></span><span>Racha: <b>"+S.streak+"</b> día"+(S.streak==1?"":"s")+"</span>";
+ $("#st").innerHTML="<span>Rango: <b>"+RANK[n]+"</b></span><span>Meses: <b>"+n+"/14</b></span><span>Fieles: <b>"+fmt(fieles())+"</b></span><span>Racha: <b>"+S.streak+"</b> día"+(S.streak==1?"":"s")+"</span>";
  $("#dc").disabled=S.claim==today();
  document.querySelectorAll(".bu").forEach((b,i)=>b.disabled=S.t<cost(i));
  const ex=$("#ex"),left=S.ex?Math.max(0,S.ex-Date.now()):0;
  ex.disabled=left>0;ex.textContent=left>0?who()+" viaja... "+Math.ceil(left/1000)+"s":"Enviar a "+who()+" de expedición";
- $("#exb").style.width=(left>0?100-left/450:0)+"%";
+ $("#exb").style.width=(left>0?Math.max(0,100-left/EXD()*100):0)+"%";
+ $("#fn").textContent=Math.floor(fieles()).toLocaleString("es");
+ const pf=Math.min(100,fieles()/META*100);$("#fb").style.width=pf+"%";
+ $("#fs").textContent=pf.toFixed(1)+"% de Libertas convertida · +"+fvRate().toFixed(1)+" fieles por segundo";
+ document.querySelectorAll(".mb").forEach((b,i)=>b.disabled=S.t<mcost(i));
+ document.querySelectorAll(".sb").forEach(b=>b.disabled=S.t<SH[+b.dataset.i][3]);
+ const pr=$("#pr");if(pr){const bl=buff()?S.bf-Date.now():0;pr.disabled=bl>0||S.t<pcost();pr.textContent=bl>0?"En curso "+Math.ceil(bl/1000)+" s":"Organizar";$("#pc").textContent=fmt(pcost())}
  chkLg();
 }
 function rArt(){
@@ -287,26 +411,87 @@ function rUps(){
  $("#ups").innerHTML=UP.map((u,i)=>"<div class='up'><div><b>"+u[0]+"</b> ("+S.u[i]+")<small>"+u[1]+" · coste "+fmt(cost(i))+"</small></div><button class='bu' data-i='"+i+"'>Comprar</button></div>").join("");
  document.querySelectorAll(".bu").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(S.t>=cost(i)){S.t-=cost(i);S.u[i]++;save();rUps();rStats()}});
 }
+function rShop(){
+ let h="<h2>Misiones (suman fieles)</h2>";
+ MI.forEach((m,i)=>h+="<div class='up'><div><b>"+m[0]+"</b> ("+S.mi[i]+")<small>"+m[1]+" · coste "+fmt(mcost(i))+"</small></div><button class='mb' data-i='"+i+"'>Fundar</button></div>");
+ h+="<h2 style='margin-top:14px'>Reliquias y bendiciones</h2>";
+ SH.forEach((x,i)=>h+="<div class='up'><div><b>"+x[1]+"</b><small>"+x[2]+(S.sh[x[0]]?"":" · coste "+fmt(x[3]))+"</small></div>"+(S.sh[x[0]]?"<span class='own'>Adquirida</span>":"<button class='sb' data-i='"+i+"'>Comprar</button>")+"</div>");
+ h+="<h2 style='margin-top:14px'>Ceremonias</h2><div class='up'><div><b>Procesión solemne</b><small>60 s: fieles ×3 y tinta ×1,5 · coste <span id='pc'></span></small></div><button id='pr'>Organizar</button></div>";
+ $("#shop").innerHTML=h;
+ $("#shop").querySelectorAll(".mb").forEach(b=>b.onclick=()=>{const i=+b.dataset.i,c=mcost(i);if(S.t>=c){S.t-=c;S.mi[i]++;save();rShop();rStats()}});
+ $("#shop").querySelectorAll(".sb").forEach(b=>b.onclick=()=>{const x=SH[+b.dataset.i];if(!S.sh[x[0]]&&S.t>=x[3]){S.t-=x[3];S.sh[x[0]]=1;say("Adquirido: "+x[1]+".");rShop();rStats()}});
+ $("#pr").onclick=()=>{const c=pcost();if(S.t>=c&&!buff()){S.t-=c;S.bf=Date.now()+60000;say("Procesión solemne por las calles de Aurelia: fieles ×3 y tinta ×1,5 durante 60 s.");rShop();rStats()}};
+}
+const DN=["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
+const curMonth=()=>{for(let i=0;i<14;i++)if(!isDone(i))return i;return 13};
+let CV={m:null,w:null};
+const mk=k=>S.mk[k]||0,setMk=(k,v)=>{if(v)S.mk[k]=v;else delete S.mk[k]};
+const dowNow=()=>(new Date().getDay()+6)%7;
+function nowInfo(){const cur=curMonth(),dc=S.d[cur]||[],wc=[0,1,2,3].find(k=>!dc[k]);return{cur,wc,nowW:wc===undefined?3:wc}}
+const dateOf=i=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate()-dowNow()+i).toLocaleDateString("sv")};
+function dayState(m,w,i){const v=mk("d"+m+"_"+w+"_"+i);if(v)return v;const x=nowInfo();return(m==x.cur&&w==x.nowW&&S.cd[dateOf(i)])?1:0}
+function daysDone(){return Math.max(Object.keys(S.mk).filter(k=>k[0]=="d"&&S.mk[k]==1).length,Object.keys(S.cd).length)}
+function setDay(m,w,i,v){const x=nowInfo(),nv=dayState(m,w,i)==v?0:v;setMk("d"+m+"_"+w+"_"+i,nv);
+ if(m==x.cur&&w==x.nowW){const ds=dateOf(i);if(nv==1)S.cd[ds]=1;else delete S.cd[ds];
+  if(nv==1&&i==dowNow()&&S.claim!=today()){save();$("#dc").click();return}}
+ save();rCart();rStats()}
+function setWk(m,w,v){const cur=(S.d[m]||[])[w]?1:mk("w"+m+"_"+w),nv=cur==v?0:v;setMk("w"+m+"_"+w,nv==-1?-1:0);tick(m,w,nv==1)}
+function setMonth(m,v){const cur=isDone(m)?1:mk("m"+m),nv=cur==v?0:v;
+ if(nv==1)T(m).forEach((_,k)=>{if(!(S.d[m]||[])[k])tick(m,k,true)});
+ else if(cur==1)T(m).forEach((_,k)=>tick(m,k,false));
+ setMk("m"+m,nv==-1?-1:0);save();rCart();rStats()}
+function rCart(){
+ const n=nDone(),{cur,wc,nowW}=nowInfo();let m=CV.m===null?cur:CV.m;if(!open(m)&&!isDone(m))m=cur;
+ const w=CV.w===null?(m===cur?nowW:0):CV.w,d=S.d[m]||[],isNow=m===cur&&w===nowW,lec=M[m][3][w],dow=dowNow();
+ const sg=(act,at,st)=>"<span class='sg'><button class='tg ok"+(st==1?" on":"")+"' data-act='"+act+"' data-v='1' "+at+">✔ Cumplí</button><button class='tg no"+(st==-1?" on":"")+"' data-act='"+act+"' data-v='-1' "+at+">✖ No cumplí</button></span>";
+ const wst=k=>d[k]?1:mk("w"+m+"_"+k),mst=isDone(m)?1:mk("m"+m);
+ const dsts=[0,1,2,3,4,5,6].map(i=>dayState(m,w,i)),nd=dsts.filter(x=>x==1).length,nw=[0,1,2,3].filter(k=>d[k]).length;
+ let h="<h2>🧭 El Cartógrafo</h2><p class='mini'>"+(n<6?"Tomás despliega su mapa sobre la mesa de la resistencia.":n<13?"El mapa de Tomás se perdió en la redada. Liberio traza ahora la ruta con tinta propia.":"Tomás, arrepentido, vuelve a dibujar el camino junto a Liberio.")+"</p>";
+ if(n==14)h+="<p><b>El mapa está completo.</b> Releé tus fichas y escribí el ensayo final: qué defiende cada corriente, dónde discrepan y con cuál te quedás.</p>";
+ h+="<div class='mes'>"+M.map((x,i)=>(open(i)||isDone(i))?"<button class='mc"+(i==m?" on":"")+(isDone(i)?" ok":mk("m"+i)==-1?" no":"")+"' data-act='go' data-i='"+i+"' title='"+x[0]+"'>"+(i+1)+(isDone(i)?"✔":mk("m"+i)==-1?"✖":"")+"</button>":"").join("")+"</div>";
+ h+="<h2>"+(m+1)+". "+M[m][0]+"</h2><p>Lecturas: <b>"+M[m][1]+"</b><br><i>Pregunta guía: "+M[m][2]+"</i></p>";
+ h+="<div class='row'><b>Mes:</b>"+sg("m","",mst)+"<span class='mini'>Semanas "+(nw)+"/4"+(m%3==2?" · repaso trimestral":"")+"</span></div>";
+ h+="<div class='wk'>"+[0,1,2,3].map(k=>"<button class='sw"+(k==w?" on":"")+"' data-act='sw' data-w='"+k+"'>"+(wst(k)==1?"✔ ":wst(k)==-1?"✖ ":m===cur&&k===wc?"➤ ":"")+"Semana "+(k+1)+"</button>").join("")+(isNow?"":"<button class='sw' data-act='sw' data-w='now'>Ir a la actual</button>")+"</div>";
+ h+="<h2>Semana "+(w+1)+" de 4</h2><div class='row'>"+sg("w","data-w='"+w+"'",wst(w))+"</div><p>Leer: <b>"+lec+"</b>. Ritmo: 25 a 35 páginas por día."+(w==3?" En esta semana cerrás el mes: ficha del libro y hoja que responde la pregunta guía.":"")+(w==3&&m%3==2?" Además toca el repaso trimestral: reescribí en una hoja las ideas principales de los bloques anteriores.":"")+"</p>";
+ const cl=T(m).map((x,k)=>[x,k]).filter(p=>p[1]>=4);
+ h+="<p style='margin:4px 0'><b>Cierre del mes:</b></p>"+cl.map(p=>"<label class='dl' style='display:flex;margin:3px 0'><input type='checkbox' class='dk' data-act='ck' data-k='"+p[1]+"'"+(d[p[1]]?" checked":"")+"> "+p[0]+"</label>").join("");
+ h+="<h2>Plan de la semana <small class='mini'>· "+nd+"/7 días cumplidos</small></h2>";
+ for(let i=0;i<7;i++){const hoy=isNow&&i==dow,st=dsts[i],tx=i<5?"Lectura activa de "+lec+" (tramo "+(i+1)+" de 5): 5 min para leer el objetivo, lectura sin teléfono y 3 líneas de lo leído al final. De 60 a 120 min.":i==5?"Pasar las notas a limpio y completar la ficha del libro: 3 ideas clave, 1 objeción y 1 duda. De 60 a 90 min.":"Charla o debate sobre lo leído y planificar la semana que viene. 60 min.";
+  h+="<div class='cd"+(hoy?" hoy":"")+(st==1?" ok":st==-1?" no":"")+"'><b>"+DN[i]+(hoy?" · hoy":"")+"</b><span>"+tx+"</span><span class='st'>"+sg("d","data-i='"+i+"'",st)+"</span></div>"}
+ h+="<h2>Máxima de la semana</h2><p class='esc'>«"+F[m][1]+"» <small>(Enquiridión "+F[m][0]+")</small></p>";
+ h+="<p class='mini'>Podés marcar «Cumplí» o «No cumplí» en cualquier mes, semana o día (tocá de nuevo para borrar la marca). Marcar semanas y cierre del mes también avanza el mapa; la tinta de cada tarea y la lectura de hoy se cobran una sola vez. Reglas: no empieces el libro siguiente sin la ficha del anterior. Si te atrasás una semana, no la recuperes: usá el sábado para ponerte al día. Un día de descanso por semana, sin culpa.</p>";
+ const el=$("#cart"),sy=window.scrollY;el.innerHTML=h;
+ el.onclick=e=>{const b=e.target.closest("[data-act]");if(!b||b.type=="checkbox")return;const a=b.dataset.act,v=+b.dataset.v;
+  if(a=="go")go(+b.dataset.i);
+  else if(a=="sw"){if(b.dataset.w=="now"){CV.m=null;CV.w=null}else CV.w=+b.dataset.w;rCart()}
+  else if(a=="m")setMonth(m,v);
+  else if(a=="w")setWk(m,+b.dataset.w,v);
+  else if(a=="d")setDay(m,w,+b.dataset.i,v)};
+ el.querySelectorAll("input[data-act=ck]").forEach(c=>c.onchange=()=>tick(m,+c.dataset.k,c.checked));
+ window.scrollTo(0,sy);
+}
 function rCr(){
- const n=nDone();let h="<h2>Crónica y reliquias</h2><p>"+PRO+"</p><p><i>"+CAST+"</i></p>";
- C.forEach((c,i)=>{if(isDone(i))h+="<p><b>Capítulo "+(i+1)+": "+c[0]+".</b> "+c[1]+"</p>"});
- if(n==14)h+="<p><b>"+EPI+"</b></p>";
+ const n=nDone();let h="<h2>Crónica y reliquias</h2><p class='mini'>"+n+" de 14 capítulos revelados. Cada mes vencido abre el siguiente.</p><h3 class='ch'>Argumento</h3><p>"+PRO+"</p><h3 class='ch'>Prólogo</h3>"+PR.map(x=>"<p><b>"+x[0]+".</b> "+x[1]+"</p>").join("")+"<p><i>"+CAST+"</i></p>";
+ C.forEach((c,i)=>{if(!isDone(i))h+="<h3 class='ch' style='opacity:.5'>Capítulo "+(i+1)+" · ???</h3><p class='mini'>Se revela al vencer el mes "+(i+1)+": «"+M[i][0]+"».</p>";else h+="<h3 class='ch'>Capítulo "+(i+1)+" · "+c[0]+"</h3><p>"+c[1]+"</p><p class='esc'><b>"+E[i][0]+".</b> "+E[i][1]+"</p><p class='moral'><b>Lección del liberto (Enquiridión "+F[i][0]+"):</b> «"+F[i][1]+"» "+F[i][2]+"</p>"});
+ if(n==14)h+="<h3 class='ch'>Epílogo</h3><p class='esc'>"+EPI.replace("Epílogo. ","")+"</p>";
  $("#cr").innerHTML=h;
 }
 function rLog(){$("#log").innerHTML="<h2>Diario del caballero</h2>"+S.log.map(x=>"<p>"+x+"</p>").join("")}
 
 function tick(i,k,v){
  const t=T(i);S.d[i]=S.d[i]||t.map(()=>false);S.d[i][k]=v;
+ if(v){delete S.mk["w"+i+"_"+k];if(isDone(i))delete S.mk["m"+i]}
  const key=i+"_"+k;
- if(v&&!S.paid[key]){S.paid[key]=1;S.t+=50*mult();say("Liberio anota: «"+t[k]+"». La tinta fluye.")}
+ if(v&&!S.paid[key]){S.paid[key]=1;S.t+=50*(S.sh.rosario?2:1)*mult();say("Liberio anota: «"+t[k]+"». La tinta fluye.")}
  if(v&&isDone(i)&&!S.paid["m"+i]){S.paid["m"+i]=1;S.t+=500;
   say(i==13?"La Niebla se disipa. Liberio sale de la Cámara con una última tarea: escribir con qué bandera se queda.":"Cae la sombra de «"+M[i][0]+"». Se abre el camino a "+B[BM[i+1]][0]+".");
   rCr()}
- save();rPanel();rArt();rStats();
+ if(!open(S.pos))S.pos=curMonth();
+ save();rPanel();rArt();rStats();rCart();
 }
 function go(i){
  if(!open(i)){say("La niebla cubre ese camino. Antes hay que vencer la sombra anterior.");return}
- S.pos=i;save();rArt();rPanel();
+ S.pos=i;CV.m=i;CV.w=null;save();rArt();rPanel();rCart();
 }
 function step(d){const j=Math.max(0,Math.min(13,S.pos+d));if(j!=S.pos)go(j)}
 $("#l").onclick=()=>step(-1);$("#r").onclick=()=>step(1);
@@ -317,30 +502,32 @@ addEventListener("keydown",e=>{
  const k=e.key.toLowerCase();
  if(k=="arrowleft"||k=="a"||k=="w"){step(-1);e.preventDefault()}
  else if(k=="arrowright"||k=="d"||k=="s"){step(1);e.preventDefault()}
- else if(k=="q")$("#wr").click();
+ else if(k=="t"){const i=TABS.findIndex(x=>x[0]==$(".cols").dataset.tab);setTab(TABS[(i+1)%TABS.length][0])}
+  else if(k=="q")$("#wr").click();
  else if(k=="e")$("#ex").click();
  else if(k=="r")$("#dc").click();
  else if(/^[1-6]$/.test(k)){const b=document.querySelectorAll(".bu")[+k-1];if(b&&!b.disabled)b.click()}
 });
 $("#dc").onclick=()=>{
  if(S.claim==today())return;
- S.streak=S.claim==yest()?S.streak+1:1;S.claim=today();
+ S.streak=S.claim==yest()?S.streak+1:1;S.claim=today();S.cd[today()]=1;{const x=nowInfo();S.mk["d"+x.cur+"_"+x.nowW+"_"+dowNow()]=1}
  const g=100*S.streak;S.t+=g;
- say("Liberio cumple su lectura del día (racha "+S.streak+"). Recibe "+g+" de tinta.");rStats();
+ say("Liberio cumple su lectura del día (racha "+S.streak+"). Recibe "+g+" de tinta.");rStats();rCart();
 };
 
-$("#wr").onclick=()=>{const g=Math.max(1,Math.ceil(rate()*.12));S.t+=g;S.clk++;
+$("#wr").onclick=()=>{const g=Math.max(1,Math.ceil(rate()*(S.sh.escudo?.3:.12)));S.t+=g;S.clk++;
  const f=document.createElement("span");f.className="fl";f.textContent="+"+fmt(g);f.style.left=(30+Math.random()*40)+"%";f.style.top="38%";
  f.onanimationend=()=>f.remove();$("#wr").parentNode.appendChild(f);rStats()};
-$("#ex").onclick=()=>{if(S.ex&&S.ex>Date.now())return;S.ex=Date.now()+45000;say(who()+" parte de expedición por 45 segundos.");rStats()};
+$("#ex").onclick=()=>{if(S.ex&&S.ex>Date.now())return;S.ex=Date.now()+EXD();say(who()+" parte de expedición por "+EXD()/1000+" segundos.");rStats()};
 
 // radio
 const au=new Audio();au.preload="none";au.volume=S.vol;
 const rs=$("#rs"),rm=$("#rm"),rp=$("#rp");
-ST.forEach(s=>{const o=document.createElement("option");o.value=s[1];o.textContent=s[0];rs.appendChild(o)});
+ST.forEach(g=>{const og=document.createElement("optgroup");og.label=g[0];g[1].forEach(x=>{const o=document.createElement("option");o.value=x[1];o.textContent=x[0];og.appendChild(o)});rs.appendChild(og)});
 function play(){au.src=rs.value;rm.textContent="Conectando...";
  au.play().then(()=>{rp.textContent="Pausar";rm.textContent="Sonando: "+rs.selectedOptions[0].textContent}).catch(()=>{rp.textContent="Escuchar";rm.textContent="No responde. Probá otra emisora o revisá tu conexión."})}
 rp.onclick=()=>{if(!au.paused){au.pause();rp.textContent="Escuchar";rm.textContent="En pausa";return}play()};
+$("#rn").onclick=()=>{rs.selectedIndex=(rs.selectedIndex+1)%rs.options.length;play()};
 rs.onchange=()=>{if(!au.paused||rp.textContent=="Pausar")play()};
 au.onerror=()=>{rp.textContent="Escuchar";rm.textContent="Error de stream. Probá otra emisora."};
 $("#rv").value=S.vol;$("#rv").oninput=e=>{au.volume=+e.target.value;S.vol=au.volume;save()};
@@ -350,11 +537,11 @@ $("#ra").onclick=()=>{const u=$("#ru").value.trim();if(!/^https?:\/\//.test(u))r
 // guardado de partida
 const SK=n=>"aldric_slot"+n,sm=t=>$("#sm").textContent=t;
 const slotGet=n=>{try{return JSON.parse(localStorage.getItem(SK(n)))}catch(e){return null}};
-function renderAll(){rArt();rPanel();rUps();rCr();rLg();rLog();rSv();rStats()}
+function renderAll(){rArt();rPanel();rUps();rShop();rCart();rCr();rLg();rLog();rSv();rStats()}
 function loadSt(d,msg){
  if(!d||typeof d!="object"||!d.d||typeof d.t!="number"){sm("Archivo no válido.");return}
- S=Object.assign(DEF(),d);S.u=UP.map((_,i)=>S.u[i]||0);S.last=Date.now();save();
- $("#rv").value=S.vol;au.volume=S.vol;renderAll();sm(msg)}
+ S=Object.assign(DEF(),d);S.u=UP.map((_,i)=>S.u[i]||0);S.mi=MI.map((_,i)=>S.mi[i]||0);S.last=Date.now();save();
+ $("#rv").value=S.vol;au.volume=S.vol;CV={m:null,w:null};renderAll();sm(msg)}
 function rSv(){
  let h="";
  for(let n=1;n<=3;n++){const x=slotGet(n);
@@ -372,19 +559,28 @@ $("#ib").onclick=()=>$("#im").click();
 $("#im").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
  r.onload=()=>{try{loadSt(JSON.parse(r.result),"Partida importada.")}catch(x){sm("Archivo no válido.")}};r.readAsText(f);e.target.value=""};
 $("#nw").onclick=()=>{if(confirm("¿Empezar una partida nueva? Se pierde la actual (las ranuras no se tocan).")){
- S=DEF();S.log=["Liberio sale de los sótanos de la Ciudad Gris. Isaura ya trabaja dentro del Directorio."];save();renderAll();sm("Partida nueva.")}};
+ S=DEF();S.log=["Liberio sale de los sótanos de la Ciudad Gris. Isaura ya trabaja dentro del Directorio."];save();CV={m:null,w:null};renderAll();sm("Partida nueva.")}};
 addEventListener("beforeunload",save);
 addEventListener("visibilitychange",()=>{if(document.hidden)save()});
 
 // arranque, progreso offline y eventos
 if(!S.log.length)S.log=["Liberio sale de los sótanos de la Ciudad Gris. Isaura, su esposa, ya trabaja dentro del Directorio."];
-const off=Math.min((Date.now()-S.last)/1000,28800);
-if(off>60){const g=rate()*off;S.t+=g;S.log.unshift("Mientras no estabas, el scriptorium copió "+fmt(g)+" de tinta.")}
+const off=Math.min((Date.now()-S.last)/1000,S.sh.biblio?86400:28800);
+if(off>60){const g=rate()*off;S.t+=g;S.fv+=fvRate()*off;S.log.unshift("Mientras no estabas, el scriptorium copió "+fmt(g)+" de tinta.")}
 if(S.streak&&S.claim!=today()&&S.claim!=yest())S.streak=0;
 renderAll();save();
-setInterval(()=>{S.t+=rate();
- if(S.ex&&Date.now()>=S.ex){S.ex=0;S.exn++;const g=Math.ceil(60*rate()+50);S.t+=g;say(who()+" regresa de su expedición con "+fmt(g)+" de tinta y noticias de la ciudad.")}
- else if(Math.random()<1/70){const g=Math.ceil(20*rate());S.t+=g;say(EV[Math.floor(Math.random()*EV.length)]+" (+"+fmt(g)+" de tinta)")}
+const TABS=[["study","📖 Estudio"],["work","⚒ Taller y tienda"],["lore","📜 Crónica"],["set","⚙ Ajustes"]];
+function setTab(t){$(".cols").dataset.tab=t;try{localStorage.setItem(KEY+"_tab",t)}catch(e){}
+ $("#tabs").innerHTML=TABS.map(x=>"<button data-t='"+x[0]+"' class='"+(x[0]==t?"on":"")+"'>"+x[1]+"</button>").join("");
+ $("#tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>setTab(b.dataset.t))}
+let t0="study";try{t0=localStorage.getItem(KEY+"_tab")||"study"}catch(e){}
+setTab(TABS.some(x=>x[0]==t0)?t0:"study");
+let lastT=Date.now(),lastD=today();
+setInterval(()=>{const now=Date.now(),dt=Math.min((now-lastT)/1000,28800);lastT=now;
+ S.t+=rate()*dt;S.fv+=fvRate()*dt;
+ if(today()!=lastD){lastD=today();if(S.streak&&S.claim!=today()&&S.claim!=yest())S.streak=0;rCart()}
+ if(S.ex&&now>=S.ex){S.ex=0;S.exn++;const g=Math.ceil(60*rate()+50);S.t+=g;say(who()+" regresa de su expedición con "+fmt(g)+" de tinta y noticias de la ciudad.")}
+ else if(Math.random()<(S.sh.sello?2:1)/70*Math.min(dt,5)){const g=Math.ceil(20*rate());S.t+=g;say(EV[Math.floor(Math.random()*EV.length)]+" (+"+fmt(g)+" de tinta)")}
  else save();
  rStats()},1000);
 </script></body></html>
